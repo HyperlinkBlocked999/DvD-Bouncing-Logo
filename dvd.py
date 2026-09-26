@@ -10,16 +10,16 @@ SCREEN_H = 480
 
 ballX = 50
 ballY = 50
-ballXDirection = 10
-ballYDirection = 10
-
-# load background and ball image (note double backslash)
-ball = pygame.image.load('images/ball.png')
-bg = pygame.image.load('images/bg.jpg')
-        
+ballXDirection = 2
+ballYDirection = 2
+     
 #set up and display the window
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 pygame.display.set_caption('Start')
+
+# load DVD Logo
+ball = pygame.image.load('images/DVD.webp').convert_alpha(screen)
+ball = pygame.transform.scale(ball,(ball.get_width() * 0.2,ball.get_height() * 0.2))
 
 while True:
     
@@ -30,10 +30,10 @@ while True:
             sys.exit()
                    
     # draw background and ball
-    screen.blit(bg, (0,0))
+    screen.fill((255,255,255))
     screen.blit(ball, (ballX, ballY))
 
-    if ballX > SCREEN_W -75:
+    if ballX > SCREEN_W -ball.get_width():
         ballXDirection *= -1
         
     if ballX < 0:
@@ -41,7 +41,7 @@ while True:
         
     ballX += ballXDirection
 
-    if ballY > SCREEN_H -75:
+    if ballY > SCREEN_H -ball.get_height():
         ballYDirection *= -1
         
     if ballY < 0:
