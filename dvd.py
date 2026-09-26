@@ -13,16 +13,9 @@ ballY = 50
 ballXDirection = 10
 ballYDirection = 10
 
-starfishX = 100
-starfishY = 150
-
-starfishXDirection = 2
-starfishYDirection = 2
-
 # load background and ball image (note double backslash)
-ball = pygame.image.load('assets\\ball.png')
-starfish = pygame.image.load('assets\\starfish.png')
-bg = pygame.image.load('assets\\bg.jpg')
+ball = pygame.image.load('ball.png')
+bg = pygame.image.load('bg.jpg')
         
 #set up and display the window
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
@@ -55,26 +48,7 @@ while True:
         ballYDirection *= -1
         
     ballY += ballYDirection
-
-    screen.blit(starfish, (starfishX, starfishY))
-
-    if starfishX > SCREEN_W -144:
-        starfishXDirection *= -1
-        
-    if starfishX < 0:
-        starfishXDirection *= -1
-        
-    starfishX += starfishXDirection
-
-    if starfishY > SCREEN_H -144:
-        starfishYDirection *= -1
-        
-    if starfishY < 0:
-        starfishYDirection *= -1
-        
-    starfishY += starfishYDirection
-
-        
+ 
     # tick the clock and refresh the screen
     fpsClock.tick(FPS)
     pygame.display.update()
