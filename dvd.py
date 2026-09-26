@@ -14,8 +14,8 @@ ballXDirection = 10
 ballYDirection = 10
 
 # load background and ball image (note double backslash)
-ball = pygame.image.load('ball.png')
-bg = pygame.image.load('bg.jpg')
+ball = pygame.image.load('images/ball.png')
+bg = pygame.image.load('images/bg.jpg')
         
 #set up and display the window
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
