@@ -8,18 +8,18 @@ FPS = 60
 SCREEN_W = 640
 SCREEN_H = 480
 
-ballX = 50
-ballY = 50
-ballXDirection = 2
-ballYDirection = 2
+DVD_X = 50
+DVD_Y = 50
+DVD_XDirection = 2
+DVD_YDirection = 2
      
 #set up and display the window
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
-pygame.display.set_caption('Start')
+pygame.display.set_caption('DVD Display')
 
 # load DVD Logo
-ball = pygame.image.load('images/DVD.webp').convert_alpha(screen)
-ball = pygame.transform.scale(ball,(ball.get_width() * 0.2,ball.get_height() * 0.2))
+DVD = pygame.image.load('images/DVD.webp').convert_alpha(screen)
+DVD = pygame.transform.scale(DVD,(DVD.get_width() * 0.2,DVD.get_height() * 0.2))
 
 while True:
     
@@ -29,25 +29,25 @@ while True:
             pygame.quit()
             sys.exit()
                    
-    # draw background and ball
+    # draw background and DVD
     screen.fill((255,255,255))
-    screen.blit(ball, (ballX, ballY))
+    screen.blit(DVD, (DVD_X, DVD_Y))
 
-    if ballX > SCREEN_W -ball.get_width():
-        ballXDirection *= -1
+    if DVD_X > SCREEN_W -DVD.get_width():
+        DVD_XDirection *= -1
         
-    if ballX < 0:
-        ballXDirection *= -1
+    if DVD_X < 0:
+        DVD_XDirection *= -1
         
-    ballX += ballXDirection
+    DVD_X += DVD_XDirection
 
-    if ballY > SCREEN_H -ball.get_height():
-        ballYDirection *= -1
+    if DVD_Y > SCREEN_H -DVD.get_height():
+        DVD_YDirection *= -1
         
-    if ballY < 0:
-        ballYDirection *= -1
+    if DVD_Y < 0:
+        DVD_YDirection *= -1
         
-    ballY += ballYDirection
+    DVD_Y += DVD_YDirection
  
     # tick the clock and refresh the screen
     fpsClock.tick(FPS)
