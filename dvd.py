@@ -52,7 +52,6 @@ while True:
     # tick the clock and refresh the screen
     fpsClock.tick(FPS)
     pygame.display.update()
-    #changes
 
     
 
